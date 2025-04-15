@@ -130,10 +130,7 @@
 
 .password-toggle-button {
     padding: 10px 15px;
-    border: 1px solid #ccc;
-    border-left: none; /* Remove left border to join with input */
-    border-radius: 0 5px 5px 0; /* Rounded right corners */
-    background-color: white;
+    border: 1px solid #ccc; /* Remove left border to join with input */ /* Rounded right corners */
     color: #555;
     cursor: pointer;
     font-size: 0.9em;
