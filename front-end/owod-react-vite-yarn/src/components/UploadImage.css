@@ -1,46 +1,152 @@
+/* src/components/UploadImage.css */
+
 .upload-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center; /* Center vertically */
-    min-height: 100vh;       /* Take up full viewport height */
-    background-color: #d1eaff;  /* Light Blue Background */
-    font-family: sans-serif;
-    padding: 20px;
-  }
-  
-  .upload-container h1 {
-    font-size: 2.5em; /* Larger heading */
-    font-weight: 600; /* Semi-bold */
-    color: #0a1f35;   /* Dark Blue/Gray Color */
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Center items horizontally */
+  padding: 30px;
+  border: 1px solid #eee; /* Optional border for the component area */
+  border-radius: 8px;
+  background-color: #f9f9f9; /* Light background for the component */
+  max-width: 700px; /* Limit width */
+  margin: 20px auto; /* Center the component on the page */
+  font-family: sans-serif;
+}
+
+.upload-container h1 {
+    margin-top: 0;
+    color: #333;
+}
+
+.upload-container p {
+    color: #555;
     margin-bottom: 20px;
-    text-align: center; /* Center text horizontally */
-    max-width: 80%;    /* Limit width for better readability */
-  }
-  
-  
-  .upload-container button {
-    background-color: #0a1f35; /* Dark Blue Button Color */
+}
+
+/* --- Upload Section Styles --- */
+.upload-section {
+    display: flex;
+    align-items: center; /* Align items vertically */
+    gap: 15px; /* Space between button and file name/spinner */
+    margin-bottom: 25px;
+    padding: 15px;
+    border: 1px dashed #ccc;
+    border-radius: 5px;
+    background-color: #fff;
+    width: 100%;
+    box-sizing: border-box;
+    justify-content: center; /* Center items if needed */
+}
+
+/* Style the label to look like a button */
+.upload-label-button {
+    display: inline-block; /* Allow padding/margin */
+    padding: 10px 20px;
+    background-color: #007bff; /* Blue background */
     color: white;
-    padding: 12px 30px; /* Adjusted padding */
     border: none;
-    border-radius: 25px;
+    border-radius: 5px;
     cursor: pointer;
-    font-size: 1.1em;
+    transition: background-color 0.3s ease;
     font-weight: 500;
+}
+
+.upload-label-button:hover {
+    background-color: #0056b3; /* Darker blue on hover */
+}
+
+.file-name {
+    font-style: italic;
+    color: #666;
+}
+
+
+/* --- Display Area and Sections --- */
+.display-area {
     margin-top: 20px;
-    transition: background-color 0.2s ease; /* Smooth hover effect */
-  }
-  
-  .upload-container button:hover {
-    background-color: #1e3a8a;  /* Slightly darker blue on hover */
-  }
-  
-  .upload-container button:disabled {
-    background-color: #94a3b8; /* Grayed out when disabled */
-    cursor: not-allowed;
-  }
-  
-  .upload-container input[type="file"] {
-    margin-bottom: 15px;
-  }
+    width: 100%;
+    background-color: #ffffff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.preview-section, .result-section {
+  margin-bottom: 15px; /* Space between preview and result if both shown */
+}
+
+.preview-section:last-child, .result-section:last-child {
+    margin-bottom: 0; /* No bottom margin for the last item in display-area */
+}
+
+
+.preview-section h2, .result-section h2 {
+    margin-top: 0;
+    margin-bottom: 10px;
+    color: #333;
+    font-size: 1.2em;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 5px;
+}
+
+.image-preview {
+  display: block; /* Prevent extra space below */
+  max-width: 100%;
+  max-height: 350px;
+  height: auto;
+  margin: 10px auto; /* Center preview image */
+  border-radius: 4px;
+  border: 1px solid #ccc;
+}
+
+.result-text {
+  font-size: 1em;
+  line-height: 1.6;
+  color: #444;
+}
+
+/* Spinner Styling (Smaller variant added) */
+.spinner {
+  border: 4px solid #f3f3f3;
+  border-top: 4px solid #3498db;
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  animation: spin 1s linear infinite;
+}
+/* Optional smaller spinner for inline use */
+.small-spinner {
+    width: 20px;
+    height: 20px;
+    border-width: 3px;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Result Status Styling */
+.ood { color: red; font-weight: bold; }
+.id { color: green; font-weight: bold; }
+
+/* Error styling */
+.error-text {
+  color: #dc3545;
+  background-color: #f8d7da;
+  border: 1px solid #f5c6cb;
+  padding: 10px 15px;
+  border-radius: 4px;
+  font-weight: bold;
+  text-align: center;
+  margin: 10px 0; /* Add some margin */
+}
+
+/* Placeholder Text */
+.placeholder-text {
+    color: #888;
+    font-style: italic;
+    margin-top: 20px;
+}

@@ -1,4 +1,4 @@
-.login-page {
+.signup-page {
     background-color: #e0f7fa; /* Light blue background */
     min-height: 100vh;
     display: flex;
@@ -7,7 +7,7 @@
     padding: 20px;
 }
 
-.login-container {
+.signup-container {
     background-color: #fff;
     border-radius: 15px;
     padding: 40px;
@@ -15,7 +15,7 @@
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05); /* Soft shadow */
 }
 
-.login-tabs {
+.signup-tabs {
     display: flex;
     margin-bottom: 30px;
     border-bottom: 1px solid #ddd; /* Separator line for tabs */
@@ -42,14 +42,14 @@
     color: white; /* Active tab text color */
 }
 
-.login-title {
+.signup-title {
     font-size: 2em;
     font-weight: bold;
     text-align: center;
     margin-bottom: 30px;
 }
 
-.google-login-button {
+.google-signup-button {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -65,7 +65,7 @@
     transition: border-color 0.3s ease;
 }
 
-.google-login-button:hover, .google-login-button:focus {
+.google-signup-button:hover, .google-signup-button:focus {
     border-color: #aaa;
     outline: none; /* Remove default focus outline */
 }
@@ -93,19 +93,19 @@
     font-size: 0.9em;
 }
 
-.email-login-form .input-group {
+.email-signup-form .input-group {
     margin-bottom: 20px;
 }
 
-.email-login-form label {
+.email-signup-form label {
     display: block;
     margin-bottom: 8px;
     font-weight: 500;
     color: #555;
 }
 
-.email-login-form input[type="email"],
-.email-login-form input[type="password"] {
+.email-signup-form input[type="text"],
+.email-signup-form input[type="email"] {
     width: 100%;
     padding: 12px;
     border: 1px solid #ccc;
@@ -114,55 +114,8 @@
     box-sizing: border-box; /* Important for padding and border to be inside width */
 }
 
-.password-group .password-input-wrapper {
-    position: relative; /* For positioning the toggle button */
-    display: flex; /* To align input and button side by side */
-    align-items: center; /* Vertically align input and button */
-}
 
-
-.password-group .password-input-wrapper input[type="password"],
-.password-group .password-input-wrapper input[type="text"] {
-    border-right: none; /* Remove right border for seamless look */
-    border-radius: 5px 0 0 5px; /* Rounded left corners */
-}
-
-
-.password-toggle-button {
-    padding: 10px 15px;
-    border: 1px solid #ccc;
-    border-left: none; /* Remove left border to join with input */
-    border-radius: 0 5px 5px 0; /* Rounded right corners */
-    background-color: white;
-    color: #555;
-    cursor: pointer;
-    font-size: 0.9em;
-    position: absolute; /* Positioned to the right of input */
-    right: 0;
-    top: 0;
-    bottom: 0;
-    border-radius: 0 5px 5px 0; /* Ensure rounded corners on right */
-    background-color: white; /* Match input background */
-    border-color: #ccc; /* Match input border color */
-    border-left: none; /* No border on the left side */
-}
-
-
-.forgot-password-link {
-    display: block;
-    text-align: right;
-    margin-bottom: 25px;
-    color: #007bff; /* Link color */
-    font-size: 0.9em;
-    text-decoration: none;
-}
-
-.forgot-password-link:hover {
-    text-decoration: underline;
-}
-
-
-.login-submit-button {
+.signup-submit-button {
     width: 100%;
     padding: 14px 20px;
     border: none;
@@ -175,7 +128,7 @@
     transition: background-color 0.3s ease;
 }
 
-.login-submit-button:hover, .login-submit-button:focus {
+.signup-submit-button:hover, .signup-submit-button:focus {
     background-color: #ccc; /* Slightly darker on hover */
     outline: none; /* Remove default focus outline */
 }
@@ -183,12 +136,12 @@
 
 /* Responsive adjustments for smaller screens */
 @media (max-width: 576px) { /* Extra small screens */
-    .login-container {
+    .signup-container {
         width: 95%; /* Take up more width on smaller screens */
         padding: 30px;
     }
 
-    .login-title {
+    .signup-title {
         font-size: 1.8em;
     }
 
@@ -197,10 +150,10 @@
         font-size: 0.9em;
     }
 
-    .google-login-button,
-    .email-login-form input[type="email"],
-    .email-login-form input[type="password"],
-    .login-submit-button {
+    .google-signup-button,
+    .email-signup-form input[type="text"],
+    .email-signup-form input[type="email"],
+    .signup-submit-button {
         font-size: 1em;
     }
 }

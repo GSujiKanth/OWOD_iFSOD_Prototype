@@ -1,45 +1,85 @@
 import React, {useState} from 'react';
 import './Login.css';
+import { useNavigate } from 'react-router-dom';
 
 const Login: React.FC = () => {
-    const [username, setUserName] = useState('');
-    const [password, serPassword] = useState('');
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
+    const [passwordVisible, setPasswordVisible] = useState(false);
+
+    const navigate = useNavigate();
+    
+    const handleSignup = () => {
+        navigate('/signup');
+    }
 
     const handleLogin = (e: React.FormEvent) => {
         e.preventDefault();
-        console.log(`Username: ${username}, Password: ${password}`);
-        // api call for authendication 
-        // haven't done yet
-    }
+        console.log(`Email: ${email}, Password: ${password}`);
+        // Here you would typically make an API call for authentication
+    };
+
+    const togglePasswordVisibility = () => {
+        setPasswordVisible(!passwordVisible);
+    };
 
     return (
-        <div className="login-container">
-            <h1>Login</h1>
-            <form onSubmit={handleLogin}>
-                <div>
-                    <label htmlFor="username">Username:</label>
-                    <input 
-                        type="text"
-                        id="username"
-                        value={username}
-                        onChange={(e) => setUserName(e.target.value)}
-                        required
-                    />
+        <div className="login-page">
+            <div className="login-container">
+                <div className="login-tabs">
+                    <button onClick={handleSignup} className="tab-button tab-signup">Sign up</button>
+                    <button className="tab-button tab-login tab-active">Log in</button>
                 </div>
-                <div>
-                    <label htmlFor="password">Password:</label>
-                    <input 
-                        type="password"
-                        id="password"
-                        value={password}
-                        onChange={(e) => serPassword(e.target.value)}
-                        required
-                    />
+
+                <h2 className="login-title">Login</h2>
+
+                <button className="google-login-button">
+                    {/* <img src={googleLogo} alt="Google Logo" className="google-logo" /> */}
+                    <span>Login with Google</span>
+                </button>
+
+                <div className="or-separator">
+                    <hr className="separator-line" />
+                    <span className="or-text">OR</span>
+                    <hr className="separator-line" />
                 </div>
-                <div>
-                    <button type='submit'>Login</button>
-                </div>
-            </form>
+
+                <form onSubmit={handleLogin} className="email-login-form">
+                    <div className="input-group">
+                        <label htmlFor="email">Email address</label>
+                        <input
+                            type="email"
+                            id="email"
+                            value={email}
+                            onChange={(e) => setEmail(e.target.value)}
+                            required
+                        />
+                    </div>
+                    <div className="input-group password-group">
+                        <label htmlFor="password">Password</label>
+                        <div className="password-input-wrapper">
+                            <input
+                                type={passwordVisible ? 'text' : 'password'}
+                                id="password"
+                                value={password}
+                                onChange={(e) => setPassword(e.target.value)}
+                                required
+                            />
+                            <button
+                                type="button"
+                                className="password-toggle-button"
+                                onClick={togglePasswordVisibility}
+                            >
+                                {passwordVisible ? 'Hide' : 'Show'}
+                            </button>
+                        </div>
+                    </div>
+
+                    <a href="#" className="forgot-password-link">Forget password?</a>
+
+                    <button type="submit" className="login-submit-button">Login</button>
+                </form>
+            </div>
         </div>
     );
 };
